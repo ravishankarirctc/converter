@@ -46,7 +46,7 @@
 	<!-- <context:property-placeholder location="classpath:database.properties" /> -->
 	
 	
-	<mvc:resources mapping = "/resources/**" location = "/resources/" />
+	<mvc:resources mapping = "/resources/**" location = "/WEB-INF/resources/assets/" />
 	
 	<mvc:annotation-driven/>
 
@@ -96,4 +96,5 @@
 		
 		 -->
 
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
 </beans>
