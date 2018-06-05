@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-	<script>var BASEURL="http://localhost:8888/LitePdfConverter/";</script>
+    <%  String url = request.getRequestURL().toString();
+String baseURL = url.substring(0, url.length() - request.getRequestURI().length()) + request.getContextPath() + "/";
+    %>
+	<script>var BASEURL="<%=baseURL%>";</script>
     <title>Litepdf - Convert any file</title>
 
     <!-- Bootstrap core CSS -->
@@ -22,7 +25,8 @@
     <link href="resources/css/landing-page.min.css" rel="stylesheet">
     <link href="resources/css/custom.css" rel="stylesheet">
   </head>
-
+  <!--  THIS IS DEFINED FOR PAGE TYPE -->
+<script>var convertType ="ppt-to-pdf";</script>
   <body>
     <!-- <div id="preloader"></div> -->
     <!-- Navigation -->
@@ -37,10 +41,12 @@
     <header class="masthead text-white text-center features-icons bg-light text-center" ng-controller="FileUploadCtrl">
       <!-- <div class="overlay"></div> -->
      <div class="container">
+                <h1 class="mb-5" style="font-size: 2rem;    margin-bottom: 15px !important;">Convert PPT/PPTX to PDF</h1>
         <div class="row">
+      
 		 <div class="col-xl-12 mx-auto">
             <h1 class="mb-5" style="font-size: 2rem;    margin-bottom: 15px !important;display: inline-block;font-size: 1.5rem;margin-right: 3%;">Select a File to Upload</h1>
-	    <input type="file" ng-model-instant id="fileToUpload" multiple onchange="angular.element(this).scope().setFiles(this)" style="margin-bottom: 20px;" />
+	    <input type="file"  ng-model-instant id="fileToUpload" multiple onchange="angular.element(this).scope().setFiles(this)" style="margin-bottom: 20px;" />
           </div>
     </div>
 	    <div class="row">
@@ -57,7 +63,8 @@
                 <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
             </span>)
         </div>
-        <input class="btn" type="button" ng-click="uploadFile()" value="Upload" />
+        <input class="btn" type="button" ng-click="uploadFile()" value="Upload" ng-show="uploadVisible"/>
+        <input class="btn" type="button" ng-click="convertFile()" value="Convert File" ng-show="convertVisible"/>
 		<span ng-show="progressVisible" style="display: block;">Please wait, File is uploading.....</span>
         <div ng-show="progressVisible" style="margin-top: 2%;">
             <div class="percent">{{progress}}%</div>
