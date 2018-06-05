@@ -44,8 +44,10 @@
 		          <div class="col-xl-12 mx-auto">
             <h1 class="mb-5">Convert any file to PDF you want in single step!</h1>
           </div>
-          <div class="col-lg-2  mainhomebox">
-          <a href="doctopdf">
+          </div>
+            <div class="row">
+          <div class="col-lg-3  mainhomebox">
+          <a href="doc-to-pdf">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
 								<i class="far fa-file-word m-auto"></i>
@@ -54,7 +56,8 @@
             </div>
             </a>
           </div>
-          <div class="col-lg-2  mainhomebox">
+          <div class="col-lg-3  mainhomebox">
+           <a href="docx-to-pdf">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <!-- <i class="icon-layers m-auto text-primary"></i> -->
@@ -62,25 +65,30 @@
               </div>
               <h3>Docx to PDF</h3>
             </div>
+            </a>
           </div>
-          <div class="col-lg-2  mainhomebox">
+          <div class="col-lg-3  mainhomebox">
+          <a href="ppt-to-pdf">
             <div class="features-icons-item mx-auto mb-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
 				<i class="far fa-file-powerpoint m-auto"></i>
 		</div>
               <h3>PPT to PDF</h3>
             </div>
+            </a>
           </div>
 		  
-		   <div class="col-lg-2  mainhomebox">
+		   <div class="col-lg-3  mainhomebox">
+		   <a href="pptx-to-pdf">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
                 <i class="far fa-file-powerpoint m-auto"></i>
-          </div>
+          	</div>
               <h3>PPTX to PDF</h3>
             </div>
+            </a>
           </div>
-          <div class="col-lg-2  mainhomebox">
+          <!-- <div class="col-lg-2  mainhomebox">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
 					<i class="far fa-file m-auto"></i>
@@ -95,10 +103,10 @@
               </div>
               <h3>XLS to PDF</h3>
             </div>
-          </div>
+          </div> -->
         </div>
 
-		 <div class="row">
+<!-- 		 <div class="row">
 		          <div class="col-xl-12 mx-auto">
             <h1 class="mb-5">Convert whatever you want in single step!</h1>
           </div>
@@ -113,7 +121,7 @@
           <div class="col-lg-2  mainhomebox">
             <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
               <div class="features-icons-icon d-flex">
-                <!-- <i class="icon-layers m-auto text-primary"></i> -->
+                <i class="icon-layers m-auto text-primary"></i>
 								<i class="far fa-file-word m-auto"></i>
               </div>
               <h3>Docx to PDF</h3>
@@ -153,7 +161,7 @@
             </div>
           </div>
         </div>
-			
+			 -->
       </div>
     </header>
 

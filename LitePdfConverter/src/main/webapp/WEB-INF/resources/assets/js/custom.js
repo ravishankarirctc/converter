@@ -3,6 +3,7 @@ FileUploadCtrl.$inject = ['$scope']
 function FileUploadCtrl(scope) {
    var dropbox = document.getElementById("dropbox")
     scope.dropText = 'Drop files here...'
+    	scope.uploadVisible = true
 
     // init event handlers
     function dragEnterLeave(evt) {
@@ -63,7 +64,7 @@ function FileUploadCtrl(scope) {
             fd.append("file", scope.files[i])
         }
         var href = location.href;
-        fd.append("type", href.match(/([^\/]*)\/*$/)[1])
+        fd.append("type", convertType)
         var xhr = new XMLHttpRequest()
         xhr.upload.addEventListener("progress", uploadProgress, false)
         xhr.addEventListener("load", uploadComplete, false)
@@ -73,6 +74,23 @@ function FileUploadCtrl(scope) {
         scope.progressVisible = true
         xhr.send(fd)
     }
+    
+    
+    scope.convertFile = function() {
+    	var fd = new FormData()
+        fd.append("type", convertType)
+        fd.append("directory", scope.directory)
+        fd.append("fileNames", scope.fileNames)
+        var xhr = new XMLHttpRequest()
+        xhr.upload.addEventListener("progress", uploadProgress, false)
+        xhr.addEventListener("load", uploadCompleteconvert, false)
+        xhr.addEventListener("error", uploadFailed, false)
+        xhr.addEventListener("abort", uploadCanceled, false)
+        xhr.open("POST", "converter")
+        scope.progressVisible = true
+        xhr.send(fd)
+    }
+
 
     function uploadProgress(evt) {
         scope.$apply(function(){
@@ -95,7 +113,28 @@ function FileUploadCtrl(scope) {
 		scope.$apply(function(){
             scope.progressVisible = false
         })
-        alert(evt.target.responseText)
+        console.log(evt.target.responseText)
+        var obj = JSON.parse(evt.target.responseText)
+       // alert(obj.fileNames)
+        scope.fileNames=obj.fileNames
+        scope.directory=obj.directory
+        //scope.convertFile(obj.fileNames,obj.directory)
+        console.log(evt.target.responseText.errorList)
+        console.log(evt.target.responseText.fileNames)
+        console.log(evt.target.responseText.directory)
+       scope.$apply(function(){
+        scope.uploadVisible = false
+        scope.convertVisible = true
+       })
+    }
+
+    function uploadCompleteconvert(evt) {
+        /* This event is raised when the server send back a response */
+		scope.$apply(function(){
+            scope.progressVisible = false
+        })
+       
+        window.open(BASEURL+"download-file?url="+evt.target.responseText);
     }
 
     function uploadFailed(evt) {
