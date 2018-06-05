@@ -8,15 +8,14 @@ import java.io.IOException;
  * @author RAVI
  *
  */
-public interface DocToPdfConverter {
+public interface PptToPdfConverter {
 	/**
-	 * DOC/DOCX to PDF
+	 * PPT/PPTX to PDF
 	 * @throws FileNotFoundException 
 	 * @throws IOException 
 	 * @throws Exception 
 	 */
-	//public void docxToPdf();
 	
-	public String docToPdf(String inPath, String outPath) throws FileNotFoundException, IOException, Exception;
+	public String pptToPdf(String inPath, String outPath) throws FileNotFoundException, IOException, Exception;
 
 }
