@@ -18,7 +18,7 @@ public class LitePdfConverterTrack {
 	//@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "track_id")
-	private String trackId;
+	private Integer trackId;
 	
 	@Column(name = "user_ip")
 	private String userIp;
@@ -38,14 +38,14 @@ public class LitePdfConverterTrack {
 	/**
 	 * @return the trackId
 	 */
-	public String getTrackId() {
+	public Integer getTrackId() {
 		return trackId;
 	}
 
 	/**
 	 * @param trackId the trackId to set
 	 */
-	public void setTrackId(String trackId) {
+	public void setTrackId(Integer trackId) {
 		this.trackId = trackId;
 	}
 
