@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -23,7 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.litepdf.converter.entity.LitePdfConverterTrack;
 import com.litepdf.converter.model.FileUploadResponseVO;
+import com.litepdf.converter.service.ConverterTrackService;
 import com.litepdf.converter.service.DocToPdfConverter;
 import com.litepdf.converter.service.PptToPdfConverter;
 import com.litepdf.converter.service.PptxToPdfConverter;
@@ -36,6 +39,9 @@ import com.litepdf.converter.util.FileUpload;
  */
 @Controller
 public class ConverterController {
+	
+	@Autowired
+	ConverterTrackService converterTrackService;
 
 	@Autowired
 	DocToPdfConverter docToPdfConverter;
@@ -229,6 +235,16 @@ public class ConverterController {
 	        }*/
 			
 			//return directory.replace("input", "output")+ "/"+outFileName.replace(".docx", "").replace(".doc", "");
+			
+			LitePdfConverterTrack litePdfConverterTrack= new LitePdfConverterTrack();
+			
+			litePdfConverterTrack.setConvertRequestType(type);
+			litePdfConverterTrack.setCreateDate(new Date());
+			litePdfConverterTrack.setIsConverted(1);
+			litePdfConverterTrack.setUserIp("11");
+			litePdfConverterTrack.setUserPort("11");
+			
+			converterTrackService.saveTracker(litePdfConverterTrack);
 			return directory.replace("input", "output")+ "/"+outFileName;
 	    }
 		
