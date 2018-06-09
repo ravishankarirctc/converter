@@ -51,8 +51,10 @@ public class FileUpload {
     	List<String> fileNames = new ArrayList<>();
     	String directory = "";
     	
-    	String inputFileDir = createFolderNameWithTime()+INPUT_PATH; 
-    	String oututFileDir = createFolderNameWithTime()+OUTPUT_PATH;
+    	String foldername = createFolderNameWithTime();
+    	
+    	String inputFileDir = "/"+foldername+INPUT_PATH; 
+    	String oututFileDir = "/"+foldername+OUTPUT_PATH;
     	
     	Integer count = 0;
     	
