@@ -43,9 +43,7 @@
 
 	<tx:annotation-driven />
 
-	<!-- <context:property-placeholder location="classpath:database.properties" /> -->
-	
-	
+	<context:property-placeholder location="classpath:database.properties" />	
 	<mvc:resources mapping = "/resources/**" location = "/WEB-INF/resources/assets/" />
 	
 	<mvc:annotation-driven/>
@@ -66,7 +64,7 @@
 	<!-- <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/> -->
 	
 
-	<!-- <bean id="dataSource"
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${database.driver}"></property>
 		<property name="url" value="${database.url}"></property>
@@ -79,7 +77,7 @@
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="annotatedClasses">
 			<list>
-				<value>com.mycompany.model.Employee</value>
+				<value>com.litepdf.converter.entity.LitePdfConverterTrack</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -92,9 +90,8 @@
 	</bean>
 
 	<bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> 
-		<property name="sessionFactory" ref="sessionFactory"></property> </bean>
-		
-		 -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver"/>
 </beans>
